@@ -1,0 +1,61 @@
+[package]
+name = "autarkie_lpm"
+
+version = "0.13.2"
+authors = [
+  "Andrea Fioraldi <andreafioraldi@gmail.com>",
+  "Dominik Maier <domenukk@gmail.com>",
+]
+edition = "2021"
+
+[features]
+default = ["std"]
+std = []
+
+[profile.release]
+lto = true
+codegen-units = 1
+opt-level = 3
+debug = true
+
+[build-dependencies]
+cc = { version = "1.0", features = ["parallel"] }
+which = "6.0"
+
+prost-build = "0.12"
+
+[dependencies]
+libafl = { git = "https://github.com/AFLplusplus/LibAFL", rev =  "08026740b03c1bcf271983af16eb817ac1ad0e03", features = [
+   "std",
+   "derive",
+   "rand_trait",
+   "fork",
+   "prelude",
+   "gzip",
+   "regex",
+ ] }
+libafl_bolts = { git = "https://github.com/AFLplusplus/LibAFL", rev =  "08026740b03c1bcf271983af16eb817ac1ad0e03"}
+libafl_targets = { git = "https://github.com/AFLplusplus/LibAFL", rev =  "08026740b03c1bcf271983af16eb817ac1ad0e03", default-features = false, features = [
+   "sancov_pcguard_hitcounts",
+   # "sancov_pcguard_edges",
+   "sancov_8bit",
+   "libfuzzer",
+   "pointer_maps",
+   "cmplog"
+  ] }
+
+
+
+clap = { version = "4.5", features = ["derive"] }
+env_logger = "0.10"
+serde = { version = "1.0.0", features = ["derive"] }
+serde_json = "1.0.140"
+
+prost = "0.12"
+prost-types = "0.12"
+autarkie = { path="/home/loknop/autarkie/autarkie", version = "0.1.0", features = ["derive", "afl"] }
+
+
+[lib]
+name = "autarkie_lpm"
+crate-type = ["staticlib"]
