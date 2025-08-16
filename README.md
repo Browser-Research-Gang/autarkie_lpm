@@ -59,7 +59,7 @@ dcheck_always_on=false
 is_asan=true
 
 use_sanitizer_coverage=true
-sanitizer_coverage_flags = "trace-pc-guard,trace-cmp
+sanitizer_coverage_flags = "trace-pc-guard,trace-cmp"
 ```
 
 update in build.rs: add needed protos in targets array
