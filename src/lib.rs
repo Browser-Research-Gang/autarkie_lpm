@@ -37,9 +37,6 @@ pub extern "C" fn libafl_main() {
     let total_len = args.len();
     let is_repro = !args.is_empty();
 
-    env_logger::init();
-    // Registry the metadata types used in this fuzzer
-    // Needed only on no_std
     let broker_port = 7777;
     let cores = Cores::from(Vec::from_iter(
         if is_repro {0..1} else {0..24}
