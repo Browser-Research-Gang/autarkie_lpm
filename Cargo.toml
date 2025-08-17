@@ -19,9 +19,6 @@ opt-level = 3
 debug = true
 
 [build-dependencies]
-cc = { version = "1.0", features = ["parallel"] }
-which = "6.0"
-
 prost-build = "0.12"
 
 [dependencies]
@@ -43,7 +40,6 @@ libafl_targets = { git = "https://github.com/AFLplusplus/LibAFL", rev =  "080267
    "pointer_maps",
    "cmplog"
   ] }
-
 
 
 serde = { version = "1.0.0", features = ["derive"] }
