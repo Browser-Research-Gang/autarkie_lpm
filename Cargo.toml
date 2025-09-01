@@ -1,6 +1,6 @@
 [package]
 name = "autarkie_lpm"
-edition = "2021"
+edition="2021"
 
 [features]
 default = ["std"]
@@ -41,7 +41,7 @@ serde_json = "1.0.140"
 
 prost = "0.12"
 prost-types = "0.12"
-autarkie = { path="/home/loknop/autarkie/autarkie", version = "0.1.0", features = ["derive", "afl"] }
+autarkie = { git="https://github.com/loknop/autarkie", rev= "05a8ef154fd6acbab4f4b232917e47e4a9eb84d1", features = ["derive", "afl"] }
 
 
 [lib]
